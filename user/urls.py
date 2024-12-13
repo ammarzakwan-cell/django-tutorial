@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
+from user.views import DataTableAPIView
 
 urlpatterns = [
     path('list/', views.user_list),
-    # path('get_user_datatable', DataTableAPIView.as_view())
+    path('datatable_list', DataTableAPIView.as_view())
 ]
