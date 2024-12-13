@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User List</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  </head>
+  <body>
+    <div class="p-5">
+        <table id="user_list" class="display" style="width:100%;">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <script charset="utf8" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script charset="utf8"
+        src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    let table = $('#user_list').DataTable({
+        "ajax": {
+            "url": "/user/get_user_datatable",
+        },
+        "processing": true,
+        "serverSide": true,
+        "columns": [
+            {"data": "first_name"},
+            {"data": "last_name"},
+            {
+                "width": "30%",
+                "data": "email"
+            },
+        ],
+        "language": {
+            search: '<i class="fa fa-filter" aria-hidden="true">Search</i>',
+            searchPlaceholder: 'Enter Email'
+        },
+    });
+
+</script>
+  </body>
+</html>
